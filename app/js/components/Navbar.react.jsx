@@ -17,9 +17,7 @@ var Navbar = React.createClass({
 		    },
 		    async: false 
 		});
-		//if (undefined != this.props.current_user) {var current_user = this.props.current_user;}
-		
-		console.log(this.props.current_user);
+
 		if (this.props.current_user.signed_in) {
 			return(
 				<li className="collection-header">
