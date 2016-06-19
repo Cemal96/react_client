@@ -11,9 +11,11 @@ var SignUpModal = React.createClass({
 			type: 'POST',
 			data: { user: { email: email, password: password, password_confirmation: password_confirmation } },
 			success: (user) => {
-				this.props.handleSubmit(user);
+				//this.props.handleSubmit(user);
+				location.reload();
 			}
 		});
+		location.reload();
 	},
 
 	render() {

@@ -6,9 +6,8 @@ var User = React.createClass({
 		return(
 			<li className="collection-item avatar">
 			<img src='./1.jpg' className="circle" />
-			<span className="title">{user.auth_token}</span>
-			<p>Phone Number:  <br />
-			Email: {user.email}
+			<span className="title">Email: {user.email}</span>
+			<p>Name: Some name <br />
 			</p>
 			</li>
 		);

@@ -1,25 +1,37 @@
 var React = require('react');
+var SignOutLink = require('./auth/SignOutLink.react.jsx');
 
-/*
- * Show Add button and Program header
- */
 var Navbar = React.createClass({
 	render() {
-		var kvak = false;
+		var signed_in = false;
 		$.ajax({
 		    beforeSend: function(request) {
-		        request.setRequestHeader("Authorization", localStorage.getItem('current_user_token'));
+		    	var token = localStorage.getItem('current_user_token');
+		        request.setRequestHeader("Authorization", token);
 		    },
 		    type: "GET",
 		    dataType: 'json',
 		    url: 'http://localhost:3000/auth/is_signed_in',
 		    success: function(response) {
-		    }
+		    	signed_in = response.signed_in
+		    },
+		    async: false 
 		});
-		console.log(kvak);
-		if (false) {
+		//if (undefined != this.props.current_user) {var current_user = this.props.current_user;}
+		
+		console.log(this.props.current_user);
+		if (this.props.current_user.signed_in) {
 			return(
-				<h1>pisun</h1>
+				<li className="collection-header">
+				<div className="row">
+					<div className="col s11">
+					<span className="title flow-text">Contact Manager</span>
+					</div>
+					<div className="col s1">
+					<SignOutLink />
+					</div>
+				</div>
+				</li>
 			)
 		} else {
 			return(

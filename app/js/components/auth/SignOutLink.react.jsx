@@ -1,15 +1,15 @@
 var React     = require('react');
-var Functions = require('../../utils/Functions.js');
  
 var SignOutLink =
   React.createClass({
     render:function(){
       return (
-        <a href="#" onClick={this._signOut}>Sign out</a>
+        <a href="#" className="btn-floating btn-large waves-effect waves-light red" onClick={this._signOut}><i className="mdi-navigation-close
+
+"></i> </a>
       )
     },
     _signOut: function(){
-      var token = localStorage.getItem('current_user_token');
       $.ajax({
         url: "http://localhost:3000/sessions",
         type: 'POST',
